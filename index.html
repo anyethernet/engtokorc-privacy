@@ -10,6 +10,7 @@
   h2 { font-size: 21px; margin-top: 32px; border-bottom: 2px solid #e4d5c3; padding-bottom: 4px; }
   .meta { background: #fffbf6; border-radius: 14px; padding: 14px 18px; border: 1px solid #e4d5c3; }
   .meta p { margin: 4px 0; }
+  .rep { font-size: 20px; font-weight: 700; }
   table { width: 100%; border-collapse: collapse; background: #fffbf6; font-size: 15px; }
   th, td { border: 1px solid #e4d5c3; padding: 8px; text-align: left; vertical-align: top; }
   th { background: #f8e6df; }
@@ -25,61 +26,64 @@
 <div class="meta">
   <p>앱 이름: 업무편지</p>
   <p>패키지 이름: com.engtokorc.engtokorc_con</p>
-  <p>대표(개인정보 보호책임자): anyethernet</p>
+  <p class="rep">대표: anyethernet</p>
+  <p>개인정보 보호책임자: anyethernet</p>
   <p>문의: <a href="mailto:xwebmon@gmail.com">xwebmon@gmail.com</a></p>
   <p>시행일: 2026년 10월 31일</p>
 </div>
 
-<p>업무편지(이하 "앱")는 한글 메모와 음성을 업무용 한글·영어 메일로 다듬는 앱입니다. 개발자는 이용자 데이터를 받는 서버를 두지 않으며, 메일 내용이나 서명을 받아 저장하지 않습니다.</p>
+<p>업무편지(이하 "앱")는 이용자가 고른 언어로 글을 번역하고, 업무 또는 기타 용도의 메일로 다듬어 메일 앱이나 SNS로 보낼 수 있게 준비하는 앱입니다. 개발자 anyethernet은 이용자 데이터를 받는 서버를 두지 않으며, 메일 내용이나 서명을 받아 저장하지 않습니다.</p>
 
 <h2>1. 휴대폰 안에만 저장하는 정보</h2>
 <p>다음 정보는 이용자의 휴대폰 안에만 저장되며 개발자에게 전송되지 않습니다.</p>
 <ul>
-  <li>받아 적은 말과 다듬어 둔 메일(받는 사람, 제목, 본문, 말투)</li>
+  <li>받아 적은 말과 다듬어 둔 메일(받는 사람, 제목, 본문, 말투, 용도, 출발 언어, 도착 언어)</li>
   <li>서명에 적은 이름, 영문 이름, 회사, 직함</li>
   <li>이용자가 직접 입력한 Gemini API 키</li>
-  <li>마이크 안내를 보았는지</li>
+  <li>앱을 설치한 시각(무료 기간 계산)과 마이크 안내를 보았는지</li>
 </ul>
 
 <h2>2. 외부로 전달될 수 있는 정보</h2>
 <table>
   <tr><th>기능</th><th>언제</th><th>어디로</th><th>무엇을</th></tr>
   <tr><td>음성 인식</td><td>마이크 버튼으로 받아쓸 때</td><td>휴대폰의 음성 인식 서비스(예: Google, 삼성)</td><td>마이크로 들은 음성. 앱은 녹음 파일을 저장하지 않습니다.</td></tr>
-  <tr><td>번역</td><td>키 없이 메일을 다듬을 때</td><td>Google 번역</td><td>받아 적은 문장과 제목</td></tr>
-  <tr><td>AI 메일</td><td>Gemini 키를 넣고 AI로 쓰기를 눌렀을 때만</td><td>Google Gemini</td><td>메모, 받는 사람, 말투, 서명에 적은 이름·회사·직함. 키는 이 기기가 Google에 인증하는 데만 쓰이며 개발자에게 전달되지 않습니다.</td></tr>
-  <tr><td>사진 글자 인식</td><td>카메라나 앨범으로 글자를 읽을 때</td><td>휴대폰 안의 Google ML Kit. 한국어 모델을 처음 받을 때만 Google Play 서비스</td><td>사진은 개발자 서버로 보내지 않습니다. 모델 다운로드 요청만 나갈 수 있습니다.</td></tr>
-  <tr><td>광고</td><td>홈 화면 배너</td><td>Google AdMob</td><td>광고 ID, 기기·앱 정보, IP에 따른 대략적인 위치, 광고 반응. 메일·서명·API 키는 광고에 쓰이지 않습니다.</td></tr>
+  <tr><td>번역</td><td>고른 언어로 메일을 다듬을 때</td><td>Google 번역</td><td>받아 적은 문장과 제목. 한국어, English, 日本語, 中文, Español, Français, Deutsch, Tiếng Việt, ไทย, Indonesia를 고를 수 있습니다.</td></tr>
+  <tr><td>AI 메일</td><td>Gemini 키를 넣고 AI로 쓰기를 눌렀을 때만</td><td>Google Gemini</td><td>메모, 받는 사람, 말투, 용도, 출발·도착 언어, 서명에 적은 이름·회사·직함. 키는 이 기기가 Google에 인증하는 데만 쓰이며 개발자에게 전달되지 않습니다.</td></tr>
+  <tr><td>사진 글자 인식</td><td>카메라나 앨범으로 글자를 읽을 때</td><td>휴대폰 안의 Google ML Kit. 한국어 모델을 처음 받을 때만 Google Play 서비스</td><td>사진은 개발자 서버로 보내지 않습니다. 영어 메일 문서는 읽은 뒤 한글로 옮길 수 있으며, 그 번역 문장만 Google 번역으로 나갈 수 있습니다.</td></tr>
+  <tr><td>광고</td><td>구독하지 않은 동안 홈 화면 배너</td><td>Google AdMob</td><td>광고 ID, 기기·앱 정보, IP에 따른 대략적인 위치, 광고 반응. 메일·서명·API 키는 광고에 쓰이지 않습니다.</td></tr>
+  <tr><td>구독</td><td>월 구독을 확인하거나 구매할 때</td><td>Google Play</td><td>구매 상태. 카드 정보는 이 앱이 받지 않습니다.</td></tr>
   <tr><td>글꼴</td><td>화면을 표시할 때</td><td>Google Fonts</td><td>글꼴 파일 요청. 메일 내용은 포함되지 않습니다.</td></tr>
-  <tr><td>보내기</td><td>복사, 메일, 공유를 눌렀을 때</td><td>이용자가 고른 앱</td><td>그 메일의 제목과 본문</td></tr>
+  <tr><td>보내기</td><td>복사, 메일, SNS를 눌렀을 때</td><td>이용자가 고른 메일 앱 또는 SNS</td><td>보고 있는 글의 제목과 본문</td></tr>
 </table>
 <p>각 서비스에는 해당 회사의 개인정보 정책이 적용됩니다. 맞춤 광고는 휴대폰의 설정 → Google → 광고에서 끌 수 있습니다. <a href="https://policies.google.com/technologies/ads">Google의 광고 정보 사용</a></p>
 
 <h2>3. 사용하는 권한</h2>
 <ul>
-  <li>마이크: 말로 받아쓸 때만 사용합니다.</li>
+  <li>마이크: 말로 받아쓸 때만 사용합니다. 음성 인식 언어는 출발 언어를 따릅니다.</li>
   <li>카메라: 글자를 찍을 때만 사용합니다. 카메라가 없는 기기에서도 앱을 쓸 수 있습니다.</li>
   <li>사진: 앨범에서 고를 때 시스템 선택 창을 사용합니다.</li>
   <li>블루투스: 음성 인식 중 헤드셋 마이크를 쓰기 위해 요청될 수 있습니다. 주변 기기 목록을 수집하지 않습니다.</li>
-  <li>인터넷: 번역, 선택적 AI, 광고, 글꼴, 한국어 인식 모델 수신에 사용합니다.</li>
+  <li>인터넷: 번역, 선택적 AI, 광고, 구독 확인, 글꼴, 한국어 인식 모델 수신에 사용합니다.</li>
   <li>광고 ID: 배너 광고에 사용합니다.</li>
 </ul>
 <p>연락처, 통화 기록, 위치, 계정 정보는 읽지 않습니다.</p>
 
 <h2>4. 보관과 삭제</h2>
-<p>지난 편지 화면에서 항목을 밀어 지울 수 있습니다. AI 연결 화면에서 키를 비우고 저장하면 키가 지워집니다. 앱을 삭제하면 휴대폰에 남은 메일, 서명, 키가 함께 삭제됩니다. 개발자는 사본을 보관하지 않으므로, 이용자가 기기에서 직접 지우면 됩니다.</p>
+<p>지난 편지 화면에서 항목을 밀어 지울 수 있습니다. AI 연결 화면에서 키를 비우고 저장하면 키가 지워집니다. 앱을 삭제하면 휴대폰에 남은 메일, 서명, 키가 함께 삭제됩니다. 개발자는 사본을 보관하지 않으므로, 이용자가 기기에서 직접 지우면 됩니다. 열람·정정·삭제를 요청하려면 아래 이메일로 연락하면 됩니다.</p>
 
 <h2>5. 개인정보의 제3자 제공</h2>
-<p>개발자는 이용자의 개인정보를 제3자에게 제공하거나 판매하지 않습니다. 위 2항의 서비스는 이용자가 그 기능을 쓸 때 휴대폰에서 해당 회사로 직접 전달됩니다. 광고는 Google AdMob이 처리합니다.</p>
+<p>대표 anyethernet은 이용자의 개인정보를 제3자에게 제공하거나 판매하지 않습니다. 위 2항의 서비스는 이용자가 그 기능을 쓸 때 휴대폰에서 해당 회사로 직접 전달됩니다. 광고는 Google AdMob이, 결제는 Google Play가 처리합니다.</p>
 
 <h2>6. 아동</h2>
 <p>앱은 만 14세 미만 아동을 대상으로 하지 않습니다.</p>
 
 <h2>7. 구독과 광고</h2>
-<p>설치 후 30일은 음성인식과 AI를 포함한 기능을 무료로 쓸 수 있습니다. 그 이후 음성인식과 AI는 Google Play 월 구독이 필요합니다. 글로 다듬기와 사진 글자 읽기는 구독 없이도 사용할 수 있습니다. 결제는 Google Play가 처리하며, 카드 정보는 이 앱이 저장하지 않습니다. 구독 중에는 배너 광고를 요청하지 않습니다.</p>
+<p>설치 후 30일은 음성인식과 AI를 포함한 기능을 무료로 쓸 수 있습니다. 그 이후 음성인식과 AI는 Google Play 월 구독이 필요합니다. 글로 다듬기와 사진 글자 읽기는 구독 없이도 사용할 수 있습니다. 결제는 Google Play가 처리하며, 카드 정보는 이 앱이 저장하지 않습니다. 구독 중에는 배너 광고를 요청하지 않습니다. 무료 기간에도 배너는 표시될 수 있습니다.</p>
 
-<h2>8. 개인정보 보호책임자와 문의</h2>
+<h2>8. 대표와 개인정보 보호책임자</h2>
 <ul>
-  <li>대표(개인정보 보호책임자): anyethernet</li>
+  <li>대표: anyethernet</li>
+  <li>개인정보 보호책임자: anyethernet</li>
   <li>이메일: <a href="mailto:xwebmon@gmail.com">xwebmon@gmail.com</a></li>
 </ul>
 <p>방침이 바뀌면 이 페이지에 바뀐 날짜와 함께 알립니다.</p>
@@ -90,28 +94,31 @@
 <div class="meta">
   <p>App: 업무편지 (business mail)</p>
   <p>Package: com.engtokorc.engtokorc_con</p>
-  <p>Representative (privacy officer): anyethernet</p>
+  <p class="rep">Representative: anyethernet</p>
+  <p>Privacy officer: anyethernet</p>
   <p>Contact: <a href="mailto:xwebmon@gmail.com">xwebmon@gmail.com</a></p>
   <p>Effective: October 31, 2026</p>
 </div>
 
-<p>업무편지 turns a Korean note or spoken words into a business email in Korean and English. The developer runs no server and does not receive or store your mail or signature.</p>
-<p><strong>Stored on your phone only:</strong> notes and drafted mail (recipient, subject, body, tone), the signature you type (name, English name, company, title), a Gemini API key if you enter one, and whether the microphone notice was shown.</p>
+<p>업무편지 translates a note into a language you choose and prepares it as a business or general email you can send from a mail app or through SNS. The representative, anyethernet, runs no server and does not receive or store your mail or signature.</p>
+<p><strong>Stored on your phone only:</strong> notes and drafted mail (recipient, subject, body, tone, purpose, source language, target language), the signature you type (name, English name, company, title), a Gemini API key if you enter one, the install time used to count the free period, and whether the microphone notice was shown.</p>
 <p><strong>May leave the phone:</strong></p>
 <ul>
-  <li>Speech recognition: your voice goes to the phone's speech service (for example Google or Samsung) while you dictate. The app does not save a recording.</li>
-  <li>Translation: the sentences and subject are sent to Google Translate when you polish a mail without an API key.</li>
-  <li>AI mail, only if you save a Gemini key and tap the AI button: the note, recipient, tone, and signature name, company and title go to Google Gemini. The key stays on your phone and is used only to call Google. It is not sent to the developer.</li>
-  <li>Photo text: recognition runs on the phone with Google ML Kit. The photo is not uploaded to the developer. The first Korean model download may contact Google Play services.</li>
-  <li>Ads: Google AdMob shows a banner on the home screen and may receive the advertising ID, device and app info, approximate location from IP, and ad interactions. Mail, signature and the API key are not used for ads. You can turn off personalized ads in Settings &gt; Google &gt; Ads.</li>
+  <li>Speech recognition: your voice goes to the phone's speech service (for example Google or Samsung) while you dictate in the source language. The app does not save a recording.</li>
+  <li>Translation: the sentences and subject are sent to Google Translate for the language pair you choose. Supported languages are Korean, English, Japanese, Chinese, Spanish, French, German, Vietnamese, Thai, and Indonesian.</li>
+  <li>AI mail, only if you save a Gemini key and tap the AI button: the note, recipient, tone, purpose, languages, and signature name, company and title go to Google Gemini. The key stays on your phone and is used only to call Google. It is not sent to the developer.</li>
+  <li>Photo text: recognition runs on the phone with Google ML Kit. The photo is not uploaded to the developer. An English email photo can be turned into Korean, and that translation may be sent to Google Translate. The first Korean model download may contact Google Play services.</li>
+  <li>Ads: while you are not subscribed, Google AdMob may show a banner and receive the advertising ID, device and app info, approximate location from IP, and ad interactions. Mail, signature and the API key are not used for ads. You can turn off personalized ads in Settings &gt; Google &gt; Ads.</li>
+  <li>Subscription: Google Play reports whether a monthly subscription is active. This app does not receive card details.</li>
   <li>Fonts: a font file may be requested from Google Fonts. Mail text is not included.</li>
-  <li>Send: when you copy, email or share, the subject and body go to the app you choose.</li>
+  <li>Send: when you copy, email, or share to SNS, the subject and body you are looking at go to the app you choose.</li>
 </ul>
-<p><strong>Permissions:</strong> microphone for dictation, camera and photos to read text, Bluetooth only so a headset microphone can be used during dictation, internet for translation, optional AI, ads, fonts and the Korean recognition model, and the advertising ID. The app does not read contacts, call logs, precise location or accounts.</p>
-<p><strong>Deleting:</strong> swipe a draft away in history, clear the API key on the AI screen, or uninstall the app. The developer keeps no copy.</p>
-<p><strong>Sharing:</strong> the developer does not sell or share your personal data. Data goes from your phone directly to the services above only when you use those features. Ads are handled by Google AdMob.</p>
-<p><strong>Subscription:</strong> speech recognition and AI stay free for 30 days after install. After that they need a monthly Google Play subscription. Typing a mail and reading text from a photo stay free. Google Play processes the payment, and this app does not store card details. The banner ad is not requested while a subscription is active.</p>
+<p><strong>Permissions:</strong> microphone for dictation, camera and photos to read text, Bluetooth only so a headset microphone can be used during dictation, internet for translation, optional AI, ads, subscription checks, fonts and the Korean recognition model, and the advertising ID. The app does not read contacts, call logs, precise location or accounts.</p>
+<p><strong>Deleting:</strong> swipe a draft away in history, clear the API key on the AI screen, or uninstall the app. The developer keeps no copy. To ask for access, correction, or deletion, email the address below.</p>
+<p><strong>Sharing:</strong> representative anyethernet does not sell or share your personal data. Data goes from your phone directly to the services above only when you use those features. Ads are handled by Google AdMob and payments by Google Play.</p>
+<p><strong>Subscription:</strong> speech recognition and AI stay free for 30 days after install. After that they need a monthly Google Play subscription. Typing a mail and reading text from a photo stay free. Google Play processes the payment, and this app does not store card details. The banner ad is not requested while a subscription is active. A banner may still appear during the free month.</p>
 <p>The app is not directed at children under 14.</p>
-<p><strong>Representative and contact:</strong> anyethernet, <a href="mailto:xwebmon@gmail.com">xwebmon@gmail.com</a></p>
+<p><strong>Representative and privacy officer:</strong> anyethernet<br>
+Contact: <a href="mailto:xwebmon@gmail.com">xwebmon@gmail.com</a></p>
 </body>
 </html>
